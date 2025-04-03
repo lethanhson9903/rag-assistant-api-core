@@ -1,4 +1,3 @@
-
 // User Types
 export interface User {
   id: string;
@@ -109,4 +108,39 @@ export interface SystemPrompt {
   content: string;
   description?: string;
   is_default: boolean;
+}
+
+export interface EmbeddingSettings {
+  id: string;
+  provider: string;
+  model_name: string;
+  dimensions: number;
+  api_key: string;
+  api_base?: string;
+  is_active: boolean;
+}
+
+export interface ChunkingSettings {
+  id: string;
+  chunk_size: number;
+  chunk_overlap: number;
+  strategy: "fixed" | "paragraph" | "sentence" | "recursive" | "custom";
+  separator?: string;
+  custom_split_logic?: string;
+  metadata_extraction: boolean;
+  is_active: boolean;
+}
+
+export interface VectorDBSettings {
+  id: string;
+  provider: string;
+  connection_string: string;
+  api_key: string;
+  environment?: string;
+  collection_name: string;
+  dimensions: number;
+  metric: "cosine" | "euclidean" | "dot";
+  use_hybrid_search: boolean;
+  use_metadata_filtering: boolean;
+  is_active: boolean;
 }
